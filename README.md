@@ -5,5 +5,5 @@ We believe electric vehicles are vehicles of the future, and we will make sure t
 
 Our initial simulations are basically Agent-Based Modeling, and you can learn about agent based modeling here -
 http://www2.econ.iastate.edu/tesfatsi/ABMTutorial.MacalNorth.JOS2010.pdf
-And to learn more about MASON - framework we using for the current simulation - check this
+And to learn more about MASON - framework we are using for the current simulation - check this
 https://cs.gmu.edu/~eclab/projects/mason/
