@@ -66,7 +66,9 @@ public class SimulationWithUI extends GUIState
                 0.0,1.0,Color.black,Color.white));
         particlesPortrayal.setField(((Simulation)state).particles);
         particlesPortrayal.setPortrayalForClass(
-        	    Movable.class, new sim.portrayal.simple.OvalPortrayal2D(Color.green) );               
+        	    Movable.class, new sim.portrayal.simple.OvalPortrayal2D(Color.green) );    
+        particlesPortrayal.setPortrayalForClass(
+        	    Metro.class, new sim.portrayal.simple.OvalPortrayal2D(Color.red) );  
         // reschedule the displayer
         display.reset();
                 
