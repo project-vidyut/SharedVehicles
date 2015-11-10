@@ -65,6 +65,18 @@ public class Simulation extends SimState
 
         pa[3][0] = 100;
         pa[3][1] = 60;
+        
+        int[][] upa = new int[4][2];
+        upa[0][0] = 20;
+        upa[0][1] = 0;
+        
+        upa[1][0] = 20;
+        upa[1][1] = 20;
+        
+        upa[2][0] = 20;
+        upa[2][1] = 40;
+        
+        
 
 
         
@@ -74,15 +86,16 @@ public class Simulation extends SimState
         schedule.scheduleRepeating(m);
         particles.setObjectLocation(m,new Int2D(0,40));
         
-        Movable p;
-    
-        for(int i=0 ; i<numParticles ; i++)
-            {
-            p = new Movable(0,0,Path);  // random directions
-            schedule.scheduleRepeating(p);
-            particles.setObjectLocation(p,
-                new Int2D(20,0));  // random location
-            }
+        Vehicle v = new Vehicle(0,0,Path);  // random directions
+        schedule.scheduleRepeating(v);
+        particles.setObjectLocation(v, new Int2D(20,20));  // random location
+        
+        User u = new User(0,0,upa);  // random directions
+        schedule.scheduleRepeating(u);
+        particles.setObjectLocation(u,new Int2D(20,0));  // random location
+            
+            
+       
         }
         
 
