@@ -26,75 +26,28 @@ public class Simulation extends SimState
         trails = new DoubleGrid2D(gridWidth, gridHeight);
         particles = new SparseGrid2D(gridWidth, gridHeight);
         
-        int[][] Path = new int[8][2];
-        Path[0][0] = 20;
-        Path[0][1] = 0;
-
-        Path[1][0] = 20;
-        Path[1][1] = 50;
-
-        Path[2][0] = 50;
-        Path[2][1] = 50;
-
-        Path[3][0] = 50;
-        Path[3][1] = 20;
-
-        Path[4][0] = 80;
-        Path[4][1] = 20;
-
-        Path[5][0] = 80;
-        Path[5][1] = 80;
-
-        Path[6][0] = 50;
-        Path[6][1] = 80;
-
-        Path[7][0] = 50;
-        Path[7][1] = 100; 
-        
-        
-        
-        int[][] pa = new int[4][2];
-        pa[0][0] = 0;
-        pa[0][1] = 40;
-
-        pa[1][0] = 50;
-        pa[1][1] = 40;
-
-        pa[2][0] = 50;
-        pa[2][1] = 60;
-
-        pa[3][0] = 100;
-        pa[3][1] = 60;
-        
-        int[][] upa = new int[4][2];
-        upa[0][0] = 20;
-        upa[0][1] = 0;
-        
-        upa[1][0] = 20;
-        upa[1][1] = 20;
-        
-        upa[2][0] = 20;
-        upa[2][1] = 40;
-        
-        
-
 
         
+    	 Metro m = new Metro(0,0,Path.getPath(0),0);  // random directions
+         schedule.scheduleRepeating(m);
+         particles.setObjectLocation(m,new Int2D(0,75));  // random location	
+
+
+         Vehicle v = new Vehicle(0,0,8);
+         schedule.scheduleRepeating(v);
+         particles.setObjectLocation(v,new Int2D(10,85));  
         
+        User u1;
+           
         
-        Metro m = new Metro(0,0,pa);
-        schedule.scheduleRepeating(m);
-        particles.setObjectLocation(m,new Int2D(0,40));
-        
-        Vehicle v = new Vehicle(0,0,Path);  // random directions
-        schedule.scheduleRepeating(v);
-        particles.setObjectLocation(v, new Int2D(20,20));  // random location
-        
-        User u = new User(0,0,upa);  // random directions
-        schedule.scheduleRepeating(u);
-        particles.setObjectLocation(u,new Int2D(20,0));  // random location
-            
-            
+        for(int k=0;k<6;k++) {
+        	 
+        	 int[][] pt = Path.getPath(k+1);
+        	 u1 = new User(0,0,pt,k+1);  // random directions
+             schedule.scheduleRepeating(u1);
+             particles.setObjectLocation(u1,new Int2D(pt[0][0],pt[0][1]));  // random location	
+        	
+        } 
        
         }
         
